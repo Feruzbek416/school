@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>tutor profile</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="icon" href="{% static 'images/logo.webp' %}">
+
+</head>
+<style>
+   video{
+      width: 300px;
+      height: 300px;
+   }
+</style>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="{% url 'home' %}" class="logo">80-Maktab</a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+      <div class="profile">
+         <img src="/static/images/80.jpg" class="image" alt="">
+         <h3 class="name">Samarqand</h3>
+         <p class="role">80-Maktab</p>
+         <a href="{% url 'profile' %}" class="btn">direktor</a>
+         <div class="flex-btn">
+            <a href="{% url 'login' %}" class="option-btn">login</a>
+            <a href="{% url 'register' %}" class="option-btn">register</a>
+         </div>
+      </div>
+
+   </section>
+
+</header>   
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/static/images/80.jpg" class="image" alt="">
+      <h3 class="name">Samarqand</h3>
+      <p class="role">80-maktab</p>
+      <a href="{% url 'profile' %}" class="btn">direktor</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="{% url 'home' %}"><i class="fas fa-home"></i><span>Asosiy Qism</span></a>
+      <a href="{% url 'about' %}"><i class="fas fa-question"></i><span>Biz haqimizda</span></a>
+      <a href="{% url 'courses' %}"><i class="fas fa-graduation-cap"></i><span>Bizning Faxrizmiz</span></a>
+      <a href="{% url 'teachers' %}"><i class="fas fa-chalkboard-user"></i><span>O'qituvchilar</span></a>
+      <a href="{% url 'contact' %}"><i class="fas fa-headset"></i><span>A'loqaga chiqsh</span></a>
+   </nav>
+
+</div>
+
+<section class="teacher-profile">
+
+   <h1 class="heading">profile details</h1>
+
+   <div class="details">
+      <div class="tutor">
+         <img src="{{con.img.url}}" alt="">
+         <h3>{{con.name}}</h3>
+         <span>{{con.job}}</span>
+      </div>
+      <div class="flex">
+         <p>staj : <span>{{con.yil}}</span></p>
+         <p>ish stafkasi : <span>{{con.stafka}}</span></p>
+         <p>toifa : <span>{{con.toifa}}</span></p>
+      </div>
+   </div>
+
+</section>
+
+<section class="courses">
+
+   <h1 class="heading">our courses</h1>
+   <div class="box-container">
+      <div class="box">
+         <div class="thumb">
+            {{video.caption}}
+            <video controls="controls" >
+               <source src="{{con.video.url}}" type="video/mp4">
+           </video>
+            <span>{{con.fan}}</span>
+         </div>
+         <h3 class="title">{{con.theme}}</h3>
+      </div>
+   </div>
+
+</section>
+
+
+<footer class="footer">
+
+   &copy; copyright @ 2023 by <span>Feruzbek Tolibov</span> | all rights reserved!
+
+</footer>
+
+<!-- custom js file link  -->
+<script src="/static/js/script.js"></script>
+
+   
+</body>
+</html>

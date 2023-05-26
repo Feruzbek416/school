@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>about us</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="icon" href="{% static 'images/logo.webp' %}">
+
+</head>
+
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="{% url 'home' %}" class="logo">80-Maktab</a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+      <div class="profile">
+         <img src="/static/images/80.jpg" class="image" alt="">
+         <h3 class="name">Samarqand</h3>
+         <p class="role">80-maktab</p>
+         <a href="{% url 'profile' %}" class="btn">Direktor</a>
+         <div class="flex-btn">
+            <a href="{% url 'login' %}" class="option-btn">login</a>
+            <a href="{% url 'register' %}" class="option-btn">register</a>
+         </div>
+      </div>
+
+   </section>
+
+</header>   
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/static/images/80.jpg" class="image" alt="">
+      <h3 class="name">Samarqand</h3>
+      <p class="role">80-maktab</p>
+      <a href="{% url 'profile' %}" class="btn">direktor</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="{% url 'home' %}"><i class="fas fa-home"></i><span>Asosiy Qism</span></a>
+      <a href="{% url 'about' %}"><i class="fas fa-question"></i><span>Biz haqimizda</span></a>
+      <a href="{% url 'courses' %}"><i class="fas fa-graduation-cap"></i><span>Bizning Faxrizmiz</span></a>
+      <a href="{% url 'teachers' %}"><i class="fas fa-chalkboard-user"></i><span>O'qituvchilar</span></a>
+      <a href="{% url 'contact' %}"><i class="fas fa-headset"></i><span>A'loqaga chiqish</span></a>
+   </nav>
+
+</div>
+
+<section class="about">
+
+   <div class="row">
+
+      <div class="image">
+         <img src="/static/images/about-img.svg" alt="">
+      </div>
+
+      <div class="content">
+         <h3>Bizning maktab</h3>
+         <p>Maktab 2019-yil ochilgan va hozirda unda 1300dan ortiq o'quvchi o'qib kelmoqda.80-maktabning boshqa maktablardan ustunlik tarafi maktab songa emas 'sifatga' e'tibor beradi.</p>
+         <a href="{% url 'courses' %}" class="inline-btn">Mahoratli o'quvchilar</a>
+      </div>
+
+   </div>
+
+   <div class="box-container">
+
+      <div class="box">
+         <i class="fas fa-graduation-cap"></i>
+         <div>
+            <h3>1300</h3>
+            <p>o'quvchilar</p>
+         </div>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-user-graduate"></i>
+         <div>
+            <h3>50</h3>
+            <p>bitiruvchilar soni</p>
+         </div>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-chalkboard-user"></i>
+         <div>
+            <h3>3</h3>
+            <p>uyda ta'lim oladiganlar</p>
+         </div>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-briefcase"></i>
+         <div>
+            <h3>120</h3>
+            <p>maktabda ishlaydiganlar</p>
+         </div>
+      </div>
+
+   </div>
+
+</section> 
+
+<section class="courses">
+
+   <h1 class="heading">Maktab ko'rinishi</h1>
+   <div class="box-container">
+      {% for i in context3 %}
+      <div class="box">
+         <div class="tutor">
+            <img src="{{i.images.url}}" alt="">
+            <div class="info">
+               <h3>{{i.joy}}</h3>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="{{i.img.url}}" alt="">
+            <span>{{i.joy}}</span>
+         </div>
+         <h3 class="title">{{i.about}}</h3>
+      </div>
+      {% endfor %}
+   </div>
+</section>
+
+
+<footer class="footer">
+
+   &copy; copyright @ 2023 by <span>Feruzbek Tolibov</span> | all rights reserved!
+
+</footer>
+
+<!-- custom js file link  -->
+<script src="/static/js/script.js"></script>
+
+   
+</body>
+</html>
